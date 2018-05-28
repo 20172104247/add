@@ -12,7 +12,7 @@ private:
 public:
 	void display();
 	void set(int fe,int in);
-	CSum operator +(CSum & pdd);
+	CSum operator -(CSum & pdd);
 };
 void CSum::display()
 {
@@ -23,10 +23,10 @@ void CSum::set(int fe,int in)
 	feet = fe+in/12;
 	inches = in%12;
 }
-CSum CSum::operator+(CSum & pdd)
+CSum CSum::operator-(CSum & pdd)
 {
 	CSum tem;
-	tem.set(feet + pdd.feet, inches + pdd.inches);
+	tem.set(feet - pdd.feet, inches - pdd.inches);
 	return tem;
 }
 
@@ -34,8 +34,10 @@ int main()
 {
 	CSum A, B, C;
 	A.set(15,9);
-	B.set(5,4);
-	C = A + B;
+	int i, k;
+	cin >> i >> k;
+	B.set(i,k);
+	C = A - B;
 	C.display();
     return 0;
 }
