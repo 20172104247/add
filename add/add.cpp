@@ -22,6 +22,10 @@ void CSum::display()
 		feet = inches / 12;
 		inches = inches % 12;
 		feet = feet*(-1);
+		if (feet==0)
+		{
+			inches = inches*(-1);
+		}
 	}
 	else
 	{
