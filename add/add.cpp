@@ -16,12 +16,23 @@ public:
 };
 void CSum::display()
 {
+	if (inches < 0)
+	{
+		inches = (-1)*inches;
+		feet = inches / 12;
+		inches = inches % 12;
+		feet = feet*(-1);
+	}
+	else
+	{
+		feet = inches / 12;
+		inches = inches % 12;
+	}
 	cout << feet << "Ó¢³ß" << inches << "Ó¢´ç"<<endl;
 }
 void CSum::set(int fe,int in)
 {
-	feet = fe+in/12;
-	inches = in%12;
+	inches = in + fe * 12;
 }
 CSum CSum::operator-(CSum & pdd)
 {
@@ -33,9 +44,9 @@ CSum CSum::operator-(CSum & pdd)
 int main()
 {
 	CSum A, B, C;
-	A.set(15,9);
-	int i, k;
-	cin >> i >> k;
+	int i, k, x, y;
+	cin >> x >> y >> i >> k;
+	A.set(x, y);
 	B.set(i,k);
 	C = A - B;
 	C.display();
